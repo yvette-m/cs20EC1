@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>EC</title>
+</head>
+<body>
+    <div class="row">
+    <div class="column">
+        <p class="out" id="out_left"></p>
+        <input type="text" id="left">
+    </div>
+    <div class="column">
+        <button id="jump">Jump ></button>
+    </div>
+    <div class="column">
+        <p class="out" id="out_right"></p>
+        <input type="text" id="right">
+    </div>
+    </div>
+
+    <script>
+
+        const text_l = document.getElementById('left');
+        const text_r = document.getElementById('right');
+
+        let left_text = document.querySelectorAll('left');
+        let right_text = document.querySelectorAll('right');
+        let clear = document.querySelector('jump');
+
+        const out_l = document.getElementById('out_left');
+        const out_r = document.getElementById('out_right');
+        let button = document.getElementById('jump');
+        let i = 0;
+
+        function handle_text() {
+            out_l.innerHTML = text_r.value;
+            out_r.innerHTML = text_l.value;
+
+            if(i == 0) {
+                button.innerHTML = "< Jump";
+                i = 1;
+            }else {
+                button.innerHTML = "Jump >";
+                i = 0;
+            }
+        }
+
+        jump.addEventListener('click', handle_text);
+
+        clear.addEventListener('click', () => {
+            left_text.forEach(left => left.value = '');
+            right_text.forEach(right => right.value = '');
+        });
+
+    </script>
+    
+</body>
+</html>
